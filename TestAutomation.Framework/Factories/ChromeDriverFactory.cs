@@ -72,7 +72,6 @@ namespace TestAutomation.Framework.Factories
 
             var chromeDriverService = ChromeDriverService.CreateDefaultService(ChromeDriverPath);
             chromeDriverService.HideCommandPromptWindow = true;
-            var test = Environment.CurrentDirectory;
             return new ChromeDriver(chromeDriverService, options, WebDriverTimeout);
         }
     }
