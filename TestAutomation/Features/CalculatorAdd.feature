@@ -7,7 +7,7 @@ Feature: CalculatorAdd
 Scenario: Add two numbers
     Given the calculator is on
 	When I add '50' and '70'
-	Then the results should be '120'
+	Then the result should be '120'
 
 	Scenario: Add two decimal numbers
 	Given the calculator is on
