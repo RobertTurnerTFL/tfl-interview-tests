@@ -5,15 +5,12 @@ using System.Text;
 namespace TestAutomation.Bindings
 {
     public class ElsCalculator
-
     {
-       public int Add()
+       public decimal Add(decimal a, decimal b)
 
         {
-           return 0;
+           var c = a + b;
+           return c;
         }
-
-
-
     }
 }
