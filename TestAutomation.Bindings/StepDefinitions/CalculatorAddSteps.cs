@@ -6,16 +6,18 @@ namespace TestAutomation.Bindings.StepDefinitions
     [Binding]
     public class CalculatorAddSteps
     {
+        NickCalculator sut;
+
         [Given(@"the calculator is on")]
         public void GivenTheCalculatorIsOn()
         {
-            ScenarioContext.Current.Pending();
+            sut = new NickCalculator();
         }
         
         [When(@"I add '(.*)' and '(.*)'")]
         public void WhenIAddAnd(Decimal p0, Decimal p1)
         {
-            ScenarioContext.Current.Pending();
+            decimal d = sut.Add(p0, p1);
         }
         
         [Then(@"the results should be '(.*)'")]
