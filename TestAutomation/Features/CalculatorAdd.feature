@@ -18,4 +18,4 @@ Scenario: Add two decimal numbers
 Scenario: Add two negative numbers
 	Given the calulator is on
 	When I add '-2.2' and '-4.4'
-	Then the result should be '6.6'
+	Then the result should be '-6.6'
