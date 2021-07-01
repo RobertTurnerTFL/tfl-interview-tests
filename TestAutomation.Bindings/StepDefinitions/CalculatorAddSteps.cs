@@ -1,5 +1,6 @@
 ﻿using System;
 using TechTalk.SpecFlow;
+using FluentAssertions;
 
 namespace TestAutomation.Bindings.StepDefinitions
 {
@@ -7,29 +8,24 @@ namespace TestAutomation.Bindings.StepDefinitions
     public class CalculatorAddSteps
     {
         Calculator sut;
-
+        decimal total;
 
         [Given(@"the calculator is on")]
         public void GivenTheCalculatorIsOn()
         {
             sut = new Calculator();   
         }
-        
        
-        
         [When(@"I add '(.*)' and '(.*)'")]
         public void WhenIAddAnd(decimal p0, decimal p1)
         {
-            var d = sut.Add(p0, p1);  
-        }
-        
-        
-     
+            total = sut.Add(p0, p1);  
+        }        
         
         [Then(@"the result should be '(.*)'")]
-        public void ThenTheResultShouldBe(Decimal p0)
+        public void ThenTheResultShouldBe(decimal expectedNumber)
         {
-            ScenarioContext.Current.Pending();
+            total.Should().Be(expectedNumber);
         }
     }
 }
