@@ -6,23 +6,26 @@ namespace TestAutomation.Bindings.StepDefinitions
     [Binding]
     public class CalculatorAddSteps
     {
+        KawaljitCalculator SUT;
+
         [Given(@"the calculator is on")]
         public void GivenTheCalculatorIsOn()
         {
-            ScenarioContext.Current.Pending();
+            SUT = new KawaljitCalculator();
         }
         
         [When(@"I add '(.*)' and '(.*)'")]
-        public void WhenIAddAnd(int p0, int p1)
+        public void WhenIAddAnd(int firstNumber, int secondNumber)
         {
-            ScenarioContext.Current.Pending();
+            int result;
+            result = SUT.Add(firstNumber, secondNumber);
         }
-        
-        [When(@"I add '(.*)' and '(.*)'")]
-        public void WhenIAddAnd(Decimal p0, Decimal p1)
-        {
-            ScenarioContext.Current.Pending();
-        }
+       
+        //[When(@"I add '(.*)' and '(.*)'")]
+        //public void WhenIAddAnd(Decimal p0, Decimal p1)
+        //{
+        //    ScenarioContext.Current.Pending();
+        //}
               
         [Then(@"the result should be '(.*)'")]
         public void ThenTheResultShouldBe(int p0)
