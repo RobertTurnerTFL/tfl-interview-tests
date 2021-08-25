@@ -4,6 +4,8 @@ using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.IO;
+using FluentAssertions.Extensions;
+using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 using TestAutomation.Framework.Factories;
 using TestAutomation.Framework.Helpers;
@@ -35,7 +37,7 @@ namespace TestAutomation.Bindings.StepDefinitions
             objectContainer.RegisterTypeAs<PageObjectFactory, IPageObjectFactory>();
         }
 
-        [AfterScenario]
+        [AfterScenario(Order = 1)]
         public void AfterScenario(IObjectContainer objectContainer)
         {
             var driver = objectContainer.Resolve<WebDriverManager>().WebDriver;
@@ -57,6 +59,15 @@ namespace TestAutomation.Bindings.StepDefinitions
                 Console.WriteLine(e);
             }
             driver?.Dispose();
+        }
+
+        [AfterScenario(Order = 2)]
+        public void Dispose(IObjectContainer objectContainer)
+        {
+            var driver = objectContainer.Resolve<WebDriverManager>().WebDriver;
+            {
+                driver.Dispose();
+            }
         }
     }
 }
