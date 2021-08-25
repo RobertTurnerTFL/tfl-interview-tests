@@ -9,7 +9,6 @@ namespace TestAutomation.PageObjects.Pages
         public SecureAreaPage(IWebDriverManager webDriverManager) : base(webDriverManager)
         {
         }
-
         private IWebElement LogoutButton => WebDriver.FindElement(By.ClassName("icon-signout"));
 
         public bool PageLoaded => LogoutButton.Displayed;

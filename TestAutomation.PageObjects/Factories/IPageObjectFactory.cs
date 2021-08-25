@@ -5,5 +5,6 @@ namespace TestAutomation.PageObjects.Factories
     public interface IPageObjectFactory
     {
         LoginPage CreateLoginPage();
+        TfLHomePage CreateTfLHomePage();
     }
 }

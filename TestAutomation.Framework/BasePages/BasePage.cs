@@ -17,7 +17,9 @@ namespace TestAutomation.Framework.BasePages
         private const string ReadyStateJavascript = "return document.readyState";
         public string PageUrl { get; set; }
         protected IWebElement Heading2 => WebDriver.FindElement(By.TagName("h2"));
+        protected IWebElement Heading1 => WebDriver.FindElement(By.TagName("h1"));
         public string Heading2Text => Heading2.Text;
+        public string Heading1Text => Heading1.Text;
 
         protected IWebDriverManager WebDriverManager { get; }
         protected IWebDriver WebDriver => WebDriverManager.WebDriver;

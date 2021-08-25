@@ -81,5 +81,7 @@ namespace TestAutomation.Bindings.StepDefinitions
             PageContext.SecureAreaPage =
                 PageContext.LoginPage.LoginWithValidUsernameAndPassword(username, password);
         }
+
+        
     }
 }

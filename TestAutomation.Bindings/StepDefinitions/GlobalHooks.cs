@@ -56,7 +56,7 @@ namespace TestAutomation.Bindings.StepDefinitions
             {
                 Console.WriteLine(e);
             }
-            driver?.Dispose();
+            //driver?.Dispose();
         }
     }
 }
