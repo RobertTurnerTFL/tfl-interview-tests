@@ -33,19 +33,19 @@ namespace TestAutomation.Bindings.StepDefinitions
         {
             PageContext.JourneyPlannerPage.ClickOnPlanMyJourneyButton();
         }
-        
+
         [When(@"user changes the destination to London Waterloo")]
         public void WhenUserChangesTheDestinationToLondonWaterloo()
         {
-            
+
         }
-        
+
         [When(@"user enters text that does not match a station name into the journey planner")]
         public void WhenUserEntersTextThatDoesNotMatchAStationNameIntoTheJourneyPlanner()
         {
-            
+
         }
-        
+
         [When(@"user clicks Plan my journey")]
         public void WhenUserClicksPlanMyJourney()
         {
