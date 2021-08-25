@@ -6,5 +6,6 @@ namespace TestAutomation.Bindings.Contexts
     {
         public LoginPage LoginPage { get; set; }
         public SecureAreaPage SecureAreaPage { get; set; }
+        public JourneyPlannerPage JourneyPlannerPage { get; set; }
     }
 }
