@@ -18,6 +18,8 @@ namespace TestAutomation.Framework.BasePages
         public string PageUrl { get; set; }
         protected IWebElement Heading2 => WebDriver.FindElement(By.TagName("h2"));
         public string Heading2Text => Heading2.Text;
+        protected IWebElement LastBreadCrumb => WebDriver.FindElement(By.ClassName("last-breadcrumb"));
+        public string LastBreadCrumbText => LastBreadCrumb.Text;
 
         protected IWebDriverManager WebDriverManager { get; }
         protected IWebDriver WebDriver => WebDriverManager.WebDriver;
