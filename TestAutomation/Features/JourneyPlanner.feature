@@ -1,4 +1,4 @@
-﻿Feature: JourneyPlanner
+Feature: JourneyPlanner
 
 Scenario: Plan a journey
 	Given user is on the TfL home page
