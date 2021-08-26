@@ -10,12 +10,14 @@ using TestAutomation.Framework.Helpers;
 using TestAutomation.Framework.Interfaces;
 using TestAutomation.PageObjects.Factories;
 
+
 namespace TestAutomation.Bindings.StepDefinitions
 {
     [Binding]
     public class GlobalHooks
     {
-        private readonly ScenarioContext _scenarioContext;
+        private static ScenarioContext _scenarioContext;
+        //private readonly FeatureContext _featureContext;
 
         public GlobalHooks(ScenarioContext scenarioContext)
         {
@@ -23,15 +25,20 @@ namespace TestAutomation.Bindings.StepDefinitions
         }
 
         [BeforeScenario]
-        public void BeforeScenario(IObjectContainer objectContainer)
+        public static void BeforeScenario(ScenarioContext scenarioContext, IObjectContainer objectContainer)
         {
+            Console.WriteLine("Before Test Hook");
+
+            _scenarioContext = scenarioContext;
             // Spins up the web browser. Browser type, WebDriverTimout and SiteUrl all specified in the test.runsettings file
             var driver = new WebDriverFactoryRegistry().GetWebDriver(TestContext.Parameters["Browser"], TestContext.Parameters["WebDriverTimeout"]).Create();
+
             var wait = new WebDriverWait(driver, TimeSpan.Parse(TestContext.Parameters["WebDriverTimeout"]));
+
             var webDriverManager = new WebDriverManager(driver, wait) { RootUrl = TestContext.Parameters["SiteUrl"] };
 
             // Here we register the IWebDriverManager Interface using Specflow's context injection (IObjectContainer)
-            objectContainer.RegisterInstanceAs<IWebDriverManager>(webDriverManager);
+                objectContainer.RegisterInstanceAs<IWebDriverManager>(webDriverManager);
             objectContainer.RegisterTypeAs<PageObjectFactory, IPageObjectFactory>();
         }
 

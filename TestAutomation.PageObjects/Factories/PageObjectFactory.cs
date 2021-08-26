@@ -16,5 +16,17 @@ namespace TestAutomation.PageObjects.Factories
         {
             return new LoginPage(_webDriverManager);
         }
+        public JourneyPlannerPage CreateJourneyPlannerPage()
+        {
+            return new JourneyPlannerPage(_webDriverManager);
+        }
+        public JourneyResultsPage CreateJourneyResultsPage()
+        {
+            return new JourneyResultsPage(_webDriverManager);
+        }
+        public EditJourneyPage CreateEditJourneyPage()
+        {
+            return new EditJourneyPage(_webDriverManager);
+        }
     }
 }

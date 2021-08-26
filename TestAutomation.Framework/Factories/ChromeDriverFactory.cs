@@ -16,6 +16,9 @@ namespace TestAutomation.Framework.Factories
         public bool DisableGpu { get; set; } = false;
         public bool NoSandBox { get; set; } = true;
         public bool StartMaximised { get; set; } = true;
+        public bool DisablePopUps { get; set; } = true; // added by me
+        public bool ExcludeSwitches { get; set; } = true; // added by me
+
         public IEnumerable<string> AdditionalArguments { get; set; } = new List<string>();
         public IDictionary<string, string> AdditionalUserProfilePreferences { get; set; } = new Dictionary<string, string>();
 
@@ -56,13 +59,23 @@ namespace TestAutomation.Framework.Factories
                 arguments.Add("no-sandbox");
             }
 
+            if (DisablePopUps)
+            {
+                arguments.Add("disable-popup-blocking");
+            }
+
+            if (ExcludeSwitches)
+            {
+                arguments.Add("excludeSwitches");
+            }
+
             if (AdditionalArguments != null)
             {
                 arguments.AddRange(AdditionalArguments);
             }
 
             options.AddArguments(arguments.Distinct());
-
+            
             AdditionalUserProfilePreferences?.ToList().ForEach(profilePreference => options.AddUserProfilePreference(profilePreference.Key, profilePreference.Value));
 
             options.UnhandledPromptBehavior = UnhandledPromptBehavior.Accept;
