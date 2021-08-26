@@ -1,5 +1,4 @@
-﻿using System.Dynamic;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
 namespace TestAutomation.Framework.Interfaces
