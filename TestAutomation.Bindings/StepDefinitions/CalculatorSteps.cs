@@ -5,7 +5,7 @@ using FluentAssertions;
 namespace TestAutomation.Bindings.StepDefinitions
 {
     [Binding]
-    public class CalculatorAddSteps
+    public class CalculatorSteps
     {
         ElsCalculator sut;
         decimal total;
@@ -22,7 +22,13 @@ namespace TestAutomation.Bindings.StepDefinitions
         {
             total = sut.Add(p0, p1);
         }
-        
+
+        [When(@"I subtract '(.*)' and '(.*)'")]
+        public void WhenISubtractAnd(decimal p0, decimal p1)
+        {
+            total = sut.Subtract(p0, p1); 
+        }
+
         [Then(@"the result should be '(.*)'")]
         public void ThenTheResultShouldBe(decimal expectedNumber)
         {
