@@ -21,7 +21,13 @@ namespace TestAutomation.Bindings.StepDefinitions
         {
             total = sut.Add(p0, p1);
         }
-        
+
+        [When(@"I subtract '(.*)' from '(.*)'")]
+        public void WhenISubtractFrom(Decimal p0, Decimal p1)
+        {
+            total = sut.Subtract(p0, p1);
+        }
+
         [Then(@"the result should be '(.*)'")]
         public void ThenTheResultsShouldBe(decimal expectedNumber)
         {

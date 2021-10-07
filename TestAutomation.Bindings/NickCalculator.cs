@@ -11,5 +11,11 @@ namespace TestAutomation.Bindings
             var c = a + b;
             return c;
         }
+
+        public decimal Subtract(decimal a, decimal b)
+        {
+            var c = b - a;
+            return c;
+        }
     }
 }
